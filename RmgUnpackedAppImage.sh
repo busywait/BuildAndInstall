@@ -57,7 +57,7 @@ $container_cmd cmake --install "$build_dir" --prefix="$bin_dir/usr"
 
 #SJM This will modify the build binaries as required for the AppImage 
 #and copy in library dependancies.
-$container_cmd "$toplvl_dir/Package/AppImage/Create.sh --no-appimage"
+$container_cmd "$toplvl_dir/Package/AppImage/Create.sh --folder-only"
 #SJM Modified from Package/AppImage/Create.sh to avoid creating the 
 #compressed AppImage file
 #$container_cmd "$script_dir/_buildRmgAppImageFolder.sh"
