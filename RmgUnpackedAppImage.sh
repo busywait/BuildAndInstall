@@ -49,7 +49,7 @@ export CFLAGS="-march=native"
 # TODO: check which dependencies also respect these suggestions
 # TODO: move the flags in to a cmake target (eg, "NativeRelease")
 # TODO: get the expanded list of flags and create a SteamDeck target
-# (eg SteamDeckRelease)
+# (eg SteamDeckRelease) for cross-compiles
 
 #SJM I'm not sure what this is for but the github build action does it
 export GITHUB_ENV="$toplvl_dir/git-ver.txt"
