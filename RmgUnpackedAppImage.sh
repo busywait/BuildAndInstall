@@ -15,6 +15,7 @@ fi
 #SJM this script merges steps from RMG/.github/workflows/build.yml with
 #the local build script RMG/Source/Scripts/build.sh
 
+script_dir="$(dirname $0)"
 script_dir="$(realpath "$script_dir")"
 toplvl_dir="$(realpath "$script_dir/../RMG/")"
 build_config="${1:-Release}"
