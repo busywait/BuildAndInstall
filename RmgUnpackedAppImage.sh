@@ -29,8 +29,9 @@ threads="${2:-$(nproc)}"
 
 #SJM Assume that the build environment is complete and up-to-date
 #if RMG/squashfs-root already exists
-if[ -d "$(toplvl_dir)/squashfs-root" ]; then
-    $container_cmd "$(script_dir)/RmgGetOrUpdateBuildTools.sh"
+if [ ! -d "$toplvl_dir/squashfs-root" ] 
+then
+    $container_cmd "$script_dir/RmgGetOrUpdateBuildTools.sh"
 fi
 #...to force an update remove squash-root before running this script
 
@@ -83,10 +84,10 @@ $container_cmd "$toplvl_dir/Package/AppImage/Create.sh --folder-only"
 mkdir "$bin_dir/../lib-not-needed" && for g in $(for f in $(find "$bin_dir/usr/lib" -type f -printf "%f\n"); do ldconfig -p  | grep -o "$f" | uniq; done); do mv "$bin_dir/usr/lib/$g" "$bin_dir/../lib-not-needed"; done
 
 #SJM move the AppImage directory to the install path, overwrite existing
-rm -rf "$(install_dir).old"
-mv "$(install_dir)" "$(install_dir).old"
+rm -rf "$install_dir.old"
+mv "$install_dir" "$install_dir.old"
 mv "$bin_dir" "$install_dir"
 
 set +x
-echo "RMG has been built and installed to $(install_dir)"
-echo "Run RMG with \"$(install_dir)/App.wrapped\""
+echo "RMG has been built and installed to $install_dir"
+echo "Run RMG with \"$install_dir/App.wrapped\""
