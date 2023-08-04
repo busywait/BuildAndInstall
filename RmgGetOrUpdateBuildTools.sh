@@ -14,7 +14,7 @@ sudo apt-get purge grub\* --yes --allow-remove-essential
 sudo add-apt-repository ppa:okirby/qt6-backports --yes
 sudo apt-get -qq update
 sudo apt-get upgrade
-sudo apt-get -y install cmake ninja-build libhidapi-dev libsamplerate0-dev libspeex-dev libminizip-dev libsdl2-dev libfreetype6-dev libgl1-mesa-dev libglu1-mesa-dev pkg-config zlib1g-dev binutils-dev libspeexdsp-dev qt6-base-dev libqt6svg6-dev build-essential nasm git zip appstream
+sudo apt-get -y install cmake ninja-build libhidapi-dev libsamplerate0-dev libspeex-dev libminizip-dev libsdl2-dev libfreetype6-dev libgl1-mesa-dev libglu1-mesa-dev pkg-config zlib1g-dev binutils-dev libspeexdsp-dev qt6-base-dev libqt6svg6-dev libvulkan-dev build-essential nasm git zip appstream
 
 # From Package/AppImage/Create.sh
 packaging_tools_dir="$(toplvl_dir)/Package/AppImage"

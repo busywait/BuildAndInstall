@@ -90,4 +90,4 @@ mv "$bin_dir" "$install_dir"
 
 set +x
 echo "RMG has been built and installed to $install_dir"
-echo "Run RMG with \"$install_dir/App.wrapped\""
+echo "Run RMG with \"$install_dir/AppRun.wrapped\""
