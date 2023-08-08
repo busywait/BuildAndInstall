@@ -24,7 +24,7 @@ export src_dir="$toplvl_dir"
 export build_dir="$toplvl_dir/Build/$build_arch/$build_config"
 export bin_dir="$toplvl_dir/Bin/$build_arch/$build_config"
 install_dir="$(realpath ~/RMG-install)"
-threads=2
+threads=1
 
 cmake_strip_args=" --strip "
 # Don't strip debug builds (configurations starting with Deb)
@@ -56,7 +56,7 @@ echo "GIT_REVISION=$(git describe --tags --always)" >> $GITHUB_ENV
 
 # The AppImage is PORTABLE_INSTALL=OFF
 # When PORTABLE_INSTALL=ON the CMAKE_INSTALL_PREFIX will be overwritten to an empty string in RMG/CMakeLists.txt
-cmake --fresh -S "$toplvl_dir" -B "$build_dir" -DCMAKE_BUILD_TYPE="$build_config" -DPORTABLE_INSTALL="ON" -DUPDATER=ON -DAPPIMAGE_UPDATER=ON -DRPI4=ON -G "Ninja"
+cmake --fresh -S "$toplvl_dir" -B "$build_dir" -DCMAKE_INSTALL_PREFIX="" -DCMAKE_BUILD_TYPE="$build_config" -DPORTABLE_INSTALL="ON" -DUPDATER=ON -DAPPIMAGE_UPDATER=ON -DRPI4=ON -G "Ninja"
 #The local build command line
 #cmake -S "$toplvl_dir" -B "$build_dir" -DCMAKE_BUILD_TYPE="$build_config" -DPORTABLE_INSTALL=ON -G "Ninja"
 
